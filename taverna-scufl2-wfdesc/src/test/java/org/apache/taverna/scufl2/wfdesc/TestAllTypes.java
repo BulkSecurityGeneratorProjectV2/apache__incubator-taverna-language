@@ -30,6 +30,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -60,7 +61,7 @@ public class TestAllTypes {
 
 	@Before
 	public void tempFile() throws IOException {
-		allTypesWfdesc = File.createTempFile("scufl2-wfdesc", ".ttl");
+		allTypesWfdesc = Files.createTempFile("scufl2-wfdesc",".ttl").toFile();
 		allTypesWfdesc.delete();
 //		allTypesWfdesc.deleteOnExit();
 		 System.out.println(allTypesWfdesc);

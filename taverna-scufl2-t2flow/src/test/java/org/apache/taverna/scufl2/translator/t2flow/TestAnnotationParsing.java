@@ -26,6 +26,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 import java.net.URI;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -153,7 +154,7 @@ public class TestAnnotationParsing {
 			System.out.println(x.getTarget());
 //			System.out.println(x.getBodyStatements().get(0));
 		}
-		File f = File.createTempFile("annotation", ".wfbundle");
+		File f = Files.createTempFile("annotation",".wfbundle").toFile();
 		System.err.println(f);
 		new WorkflowBundleIO().writeBundle(wfBundle, f, "application/vnd.taverna.scufl2.workflow-bundle");
 	}

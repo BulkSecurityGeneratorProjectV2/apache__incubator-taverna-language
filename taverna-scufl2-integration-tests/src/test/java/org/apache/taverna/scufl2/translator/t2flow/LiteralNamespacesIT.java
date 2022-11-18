@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.net.URL;
+import java.nio.file.Files;
 
 import org.junit.Test;
 
@@ -45,7 +46,7 @@ public class LiteralNamespacesIT {
 		assertNotNull("Could not find workflow " + WF_APICONSUMER,
 				wfResource);
 
-		File bundleFile = File.createTempFile("test", "wfbundle");		
+		File bundleFile = Files.createTempFile("test","wfbundle").toFile();		
 		
 		WorkflowBundle wfBundle = workflowBundleIO.readBundle(wfResource, null);		
 		workflowBundleIO.writeBundle(wfBundle, bundleFile, "application/vnd.taverna.scufl2.workflow-bundle");

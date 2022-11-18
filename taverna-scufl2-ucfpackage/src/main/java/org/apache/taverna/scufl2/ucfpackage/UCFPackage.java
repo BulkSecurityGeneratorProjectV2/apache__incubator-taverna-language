@@ -34,6 +34,7 @@ import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.net.URI;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -153,8 +154,7 @@ public class UCFPackage extends ODFJaxb implements Cloneable  {
 	}
 
 	public void save(File packageFile) throws IOException {
-		File tempFile = createTempFile("." + packageFile.getName(), ".tmp",
-				packageFile.getCanonicalFile().getParentFile());
+		File tempFile = Files.createTempFile(packageFile.getCanonicalFile().getParentFile().toPath(),"." + packageFile.getName(),".tmp").toFile();
 		prepareAndSave(tempFile);
 		boolean renamed = tempFile.renameTo(packageFile);
 		if (!renamed && packageFile.exists() && tempFile.exists()) {
@@ -572,7 +572,7 @@ public class UCFPackage extends ODFJaxb implements Cloneable  {
 	}
 
 	public void save(OutputStream output) throws IOException {
-		File tempFile = createTempFile("ucfpackage", ".tmp");
+		File tempFile = Files.createTempFile("ucfpackage",".tmp").toFile();
 		prepareAndSave(tempFile);
 
 		// Copy file to the output

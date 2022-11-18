@@ -23,6 +23,7 @@ package org.apache.taverna.scufl2.integration;
 
 import java.io.File;
 import java.net.URI;
+import java.nio.file.Files;
 
 import org.junit.Test;
 
@@ -90,7 +91,7 @@ public class TestSimpleWf {
 		profile.getConfigurations().add(config);
 		
 		// Save to file (or System.out ? )
-		File file = File.createTempFile("test", ".wfbundle");
+		File file = Files.createTempFile("test",".wfbundle").toFile();
 		bundleIo.writeBundle(wb, file, bundleType);
 		System.out.println(file);
 	}

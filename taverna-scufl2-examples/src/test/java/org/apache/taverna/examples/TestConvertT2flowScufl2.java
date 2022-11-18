@@ -26,6 +26,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.zip.ZipFile;
 
 import org.apache.commons.io.IOUtils;
@@ -36,7 +37,7 @@ import org.junit.Test;
 public class TestConvertT2flowScufl2 {
 	@Test
 	public void convertToScufl2() throws Exception {
-		File tmp = File.createTempFile("helloworld", ".t2flow");
+		File tmp = Files.createTempFile("helloworld",".t2flow").toFile();
 		tmp.deleteOnExit();
 		InputStream ebi = getClass().getResourceAsStream("/workflows/t2flow/helloworld.t2flow");
 		FileOutputStream output = new FileOutputStream(tmp);

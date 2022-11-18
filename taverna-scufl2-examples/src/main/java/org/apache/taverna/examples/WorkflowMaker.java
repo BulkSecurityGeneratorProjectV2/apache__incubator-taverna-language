@@ -23,6 +23,7 @@ package org.apache.taverna.examples;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Files;
 
 import org.apache.taverna.scufl2.api.activity.Activity;
 import org.apache.taverna.scufl2.api.common.Scufl2Tools;
@@ -392,7 +393,7 @@ public class WorkflowMaker {
 
 	private void writeBundleToFile() throws IOException, WriterException,
 			ReaderException {
-		file = File.createTempFile("test", ".wfbundle");
+		file = Files.createTempFile("test",".wfbundle").toFile();
 	
 		/**
 		 * Bundle IO 

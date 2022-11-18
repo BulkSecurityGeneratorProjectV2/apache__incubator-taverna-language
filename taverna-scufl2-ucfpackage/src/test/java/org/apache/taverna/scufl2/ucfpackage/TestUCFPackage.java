@@ -35,6 +35,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -162,7 +163,7 @@ public class TestUCFPackage {
 
 	@Before
 	public void createTempFile() throws IOException {
-		tmpFile = File.createTempFile("scufl2-test", ".bundle");
+		tmpFile = Files.createTempFile("scufl2-test",".bundle").toFile();
 		assertTrue(tmpFile.delete());
 		if (DELETE_FILES) {
 			tmpFile.deleteOnExit();

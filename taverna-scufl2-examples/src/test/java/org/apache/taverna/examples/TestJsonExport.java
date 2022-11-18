@@ -25,6 +25,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.taverna.examples.JsonExport;
@@ -34,7 +35,7 @@ import org.junit.Test;
 public class TestJsonExport {
     @Test
     public void jsonExportHelloAnyone() throws Exception {
-        File tmp = File.createTempFile("helloanyone", ".t2flow");
+        File tmp = Files.createTempFile("helloanyone",".t2flow").toFile();
         tmp.deleteOnExit();
         InputStream ebi = getClass().getResourceAsStream("/workflows/t2flow/helloanyone.t2flow");
         FileOutputStream output = new FileOutputStream(tmp);
@@ -54,7 +55,7 @@ public class TestJsonExport {
     @Ignore("Takes 24 seconds!")
     @Test
     public void jsonExportNested() throws Exception {
-        File tmp = File.createTempFile("enm", ".t2flow");
+        File tmp = Files.createTempFile("enm",".t2flow").toFile();
         tmp.deleteOnExit();
         InputStream ebi = getClass().getResourceAsStream("/workflows/t2flow/generic_enm_workflow_with_interaction_615643.t2flow");
         FileOutputStream output = new FileOutputStream(tmp);

@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Set;
@@ -202,7 +203,7 @@ public class TestWorkflowBundleIO extends ExampleWorkflow {
 		WorkflowBundle wfBundle = bundleIO.readBundle(bundleFile,null);
 		assertNotNull(wfBundle);
 
-		File emptyFile = File.createTempFile("test", "txt");
+		File emptyFile = Files.createTempFile("test","txt").toFile();
 		try {
 			@SuppressWarnings("unused")
 			WorkflowBundle none = bundleIO.readBundle(emptyFile,null);
@@ -314,7 +315,7 @@ public class TestWorkflowBundleIO extends ExampleWorkflow {
 	}
 
 	public File tempFile() throws IOException {
-		File bundleFile = File.createTempFile("scufl2", "txt");
+		File bundleFile = Files.createTempFile("scufl2","txt").toFile();
 		bundleFile.deleteOnExit();
 		return bundleFile;
 	}

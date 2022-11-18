@@ -25,6 +25,7 @@ import static org.apache.taverna.scufl2.wfdesc.WfdescReader.TEXT_VND_WF4EVER_WFD
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.taverna.scufl2.api.container.WorkflowBundle;
@@ -45,7 +46,7 @@ public class TestWfdescWriter {
 	
 
 	public File tempFile() throws IOException {
-		File bundleFile = File.createTempFile("wfdesc", ".ttl");
+		File bundleFile = Files.createTempFile("wfdesc",".ttl").toFile();
 		bundleFile.deleteOnExit();
 //		System.out.println(bundleFile);
 		return bundleFile;

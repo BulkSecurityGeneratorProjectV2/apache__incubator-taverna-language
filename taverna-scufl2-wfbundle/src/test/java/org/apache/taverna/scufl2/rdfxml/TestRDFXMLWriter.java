@@ -29,6 +29,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 
@@ -149,7 +150,7 @@ public class TestRDFXMLWriter {
 	}
 
 	public File tempFile() throws IOException {
-		File bundleFile = File.createTempFile("test", ".scufl2");
+		File bundleFile = Files.createTempFile("test",".scufl2").toFile();
 //		bundleFile.deleteOnExit();
 		System.out.println(bundleFile);
 		return bundleFile;

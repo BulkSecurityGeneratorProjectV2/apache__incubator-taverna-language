@@ -26,6 +26,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -90,7 +91,7 @@ public class TestResourcesInZip {
 	}
 	
 	public File tempFile() throws IOException {
-		File bundleFile = File.createTempFile("test", ".scufl2");
+		File bundleFile = Files.createTempFile("test",".scufl2").toFile();
 		bundleFile.deleteOnExit();
 		//System.out.println(bundleFile);
 		return bundleFile;

@@ -27,6 +27,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.taverna.scufl2.api.container.WorkflowBundle;
@@ -51,7 +52,7 @@ public class TestSemanticAnnotations {
 	
 
 	public File tempFile() throws IOException {
-		File bundleFile = File.createTempFile("wfdesc", ".ttl");
+		File bundleFile = Files.createTempFile("wfdesc",".ttl").toFile();
 //		bundleFile.deleteOnExit();
 		//System.out.println(bundleFile);
 		return bundleFile;

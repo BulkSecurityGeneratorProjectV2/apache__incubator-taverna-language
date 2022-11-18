@@ -28,6 +28,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 
 import org.apache.taverna.scufl2.api.container.WorkflowBundle;
 import org.apache.taverna.scufl2.api.io.WorkflowBundleIO;
@@ -50,7 +51,7 @@ public class TestNested {
 
 	@Before
 	public void tempFile() throws IOException {
-		nestedWfdesc = File.createTempFile("scufl2-wfdesc", ".ttl");
+		nestedWfdesc = Files.createTempFile("scufl2-wfdesc",".ttl").toFile();
 		nestedWfdesc.delete();
 //		allTypesWfdesc.deleteOnExit();
 		// System.out.println(nestedWfdesc);

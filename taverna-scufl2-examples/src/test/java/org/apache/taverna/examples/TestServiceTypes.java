@@ -25,6 +25,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +36,7 @@ import org.junit.Test;
 public class TestServiceTypes {
 	@Test
 	public void defaultActivitiesT2flow() throws Exception {
-		File tmp = File.createTempFile("defaultActivities2.2", ".t2flow");
+		File tmp = Files.createTempFile("defaultActivities2.2",".t2flow").toFile();
 		tmp.deleteOnExit();
 		InputStream ebi = getClass()
 				.getResourceAsStream(
@@ -72,7 +73,7 @@ public class TestServiceTypes {
 	
 	@Test
 	public void defaultActivitiesWfBundle() throws Exception {
-		File tmp = File.createTempFile("defaultActivities2.2", ".wfbundle");
+		File tmp = Files.createTempFile("defaultActivities2.2",".wfbundle").toFile();
 		tmp.deleteOnExit();
 		InputStream ebi = getClass()
 				.getResourceAsStream(
